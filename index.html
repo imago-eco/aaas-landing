@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMA.AAAS — alpha</title>
+  <meta name="description" content="A persistent AI orchestrator and a small specialist team. Five friends, by invite, alpha-stage.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── DNA tokens ──────────────────────────────────────────────────── */
+    :root {
+      --ink: #0F0F0F;
+      --paper: #FFFFFF;
+      --surface-off: #FAFAF8;
+      --rule: #1A1A1A;
+      --muted: #6A6A6A;
+      --muted-2: #2A2A2A;
+      --muted-dark: #9A9A9A;
+      --max-w: 1080px;
+      --gutter: 32px;
+    }
+
+    @font-face {
+      font-family: "Dawo";
+      src: url("/fonts/dawo.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Square-corner enforcement — single source of truth (Otto note). */
+    *, *::before, *::after {
+      border-radius: 0 !important;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* ── Section: Hero (full-bleed ink) ─────────────────────────────── */
+    .hero {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 96px 0 112px;
+    }
+    .hero .eyebrow {
+      font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 32px;
+    }
+    .hero .wordmark {
+      font-family: "Dawo", "Space Grotesk", sans-serif;
+      font-size: clamp(64px, 11vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+      margin: 0 0 40px;
+      font-weight: 400;
+    }
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(28px, 3.2vw, 32px);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--paper);
+      max-width: 720px;
+      margin: 0 0 24px;
+    }
+    .hero .sub {
+      font-size: clamp(17px, 1.7vw, 19px);
+      opacity: 0.75;
+      max-width: 620px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Section: Light surface (Who + What you get) ────────────────── */
+    section.light {
+      background: var(--paper);
+      padding: 96px 0;
+    }
+    h2 {
+      font-family: "Dawo", "Space Grotesk", sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+      margin: 0 0 32px;
+      line-height: 1;
+    }
+    .who p {
+      max-width: 640px;
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+    .who p:last-child { margin-bottom: 0; }
+
+    .what .sub-h2 {
+      font-size: 17px;
+      color: var(--muted);
+      margin: -16px 0 40px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 760px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+    .card {
+      border: 1px solid var(--rule);
+      padding: 24px;
+      background: var(--paper);
+    }
+    .card .card-eyebrow {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .card .card-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+    .card .card-subtitle {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .card .card-body {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    /* ── Section: How it works (ink panel) ──────────────────────────── */
+    section.dark {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 96px 0;
+    }
+    section.dark h2 { color: var(--paper); }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      max-width: 720px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      align-items: baseline;
+    }
+    @media (max-width: 560px) {
+      .step { grid-template-columns: 56px 1fr; gap: 16px; }
+    }
+    .step .num {
+      font-family: "Dawo", "Space Grotesk", sans-serif;
+      font-size: 36px;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .step .step-body h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--paper);
+      margin: 0 0 8px;
+    }
+    .step .step-body p {
+      font-size: 14px;
+      color: var(--muted-dark);
+      line-height: 1.55;
+      max-width: 480px;
+      margin: 0;
+    }
+
+    /* ── Section: What it isn't (off-white) ─────────────────────────── */
+    section.surface-off {
+      background: var(--surface-off);
+      padding: 96px 0;
+    }
+    .isnt-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 720px;
+    }
+    .isnt-list li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .badge-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--ink);
+      margin-top: 9px;
+    }
+    .isnt-list .lead {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .isnt-list .tail {
+      font-weight: 400;
+      color: var(--muted-2);
+    }
+
+    /* ── CTA (ink panel) ────────────────────────────────────────────── */
+    section.cta {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 112px 0;
+      text-align: center;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--paper);
+      padding: 14px 28px;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-fallback {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      color: var(--muted-dark);
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- §4.1 Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">ALPHA · INVITE ONLY · 2026</div>
+      <h1 class="wordmark">IMA.AAAS</h1>
+      <h1>Your own persistent AI orchestrator and a small specialist team, running 24/7 on Even's home server.</h1>
+      <p class="sub">Not a SaaS. Not a chatbot. A small standing AI team that gets to know you and helps with your stuff.</p>
+    </div>
+  </section>
+
+  <!-- §4.2 Who it's for -->
+  <section class="light who">
+    <div class="wrap">
+      <h2>WHO IT'S FOR</h2>
+      <p>Five friends Even picked. That's the whole alpha.</p>
+      <p>If you're reading this, you're one of them — or someone Even sent the link to.</p>
+      <p>We kept it small on purpose. We want to know whether a persistent AI team is genuinely useful or whether the magic wears off in week two, and five lets us hear every signal.</p>
+      <p>If it works, it grows. If it doesn't, you'll get the unvarnished post-mortem and we'll all have learned something.</p>
+    </div>
+  </section>
+
+  <!-- §4.3 What you get -->
+  <section class="light what">
+    <div class="wrap">
+      <h2>WHAT YOU GET</h2>
+      <p class="sub-h2">A team of three, named once you meet them.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-eyebrow">ROLE · 01</div>
+          <h3 class="card-title">YOUR ORCHESTRATOR</h3>
+          <div class="card-subtitle">🐙 your orchestrator</div>
+          <p class="card-body">When you join, the first message you get is "what should I call myself?" — pick a name, it'll answer to it from then on. It remembers what you've told it, what you're working on, what you care about. When a job needs a researcher or a builder, it pulls one in. Asks before doing anything irreversible.</p>
+        </div>
+        <div class="card">
+          <div class="card-eyebrow">ROLE · 02</div>
+          <h3 class="card-title">A RESEARCHER ON CALL</h3>
+          <div class="card-subtitle">🐿️ pulled in when needed</div>
+          <p class="card-body">When the orchestrator needs facts, it pulls in a researcher. Reads sources and cites them. Says "I'm not sure" when it isn't. Quality-scores its own work before handing back. Verdict first, then the reasoning — no padding.</p>
+        </div>
+        <div class="card">
+          <div class="card-eyebrow">ROLE · 03</div>
+          <h3 class="card-title">A BUILDER ON CALL</h3>
+          <div class="card-subtitle">🦀 pulled in when needed</div>
+          <p class="card-body">When the orchestrator needs something made — code, a script, a doc, a small tool — the builder picks it up. Skeptical by design: it'll say "this is a bad idea, here's why" before implementing. Tests its work. Doesn't ship broken things.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4.4 How it works (4 steps — Step 04 GitHub IS IN per Even override) -->
+  <section class="dark">
+    <div class="wrap">
+      <h2>HOW IT WORKS</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <div class="step-body">
+            <h3>Even sends you an invite link</h3>
+            <p>One Discord server, your own private channel. Your orchestrator joins it and posts first.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div class="step-body">
+            <h3>You name your orchestrator</h3>
+            <p>It asks. You pick. From that point it answers to that name and remembers everything you tell it. Memory is yours — pause or delete anytime by telling Even.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div class="step-body">
+            <h3>You ask it to do stuff</h3>
+            <p>Research, drafting, brainstorming, scripts, finding things, summarizing things. It'll say what it can and can't do. If it needs to do something irreversible, it'll ask first.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <div class="step-body">
+            <h3>GitHub for the longer-running stuff</h3>
+            <p>If you've got work you want tracked, your orchestrator plugs into a GitHub repo. Issues become tasks. You can also ignore this entirely and just use Discord — it works either way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4.5 What it isn't -->
+  <section class="surface-off">
+    <div class="wrap">
+      <h2>WHAT IT ISN'T</h2>
+      <ul class="isnt-list">
+        <li>
+          <span class="badge-dot"></span>
+          <span><span class="lead">Not a SaaS.</span> <span class="tail">No login, no account, no billing. You're a guest in Even's setup.</span></span>
+        </li>
+        <li>
+          <span class="badge-dot"></span>
+          <span><span class="lead">No SLA.</span> <span class="tail">It runs when Even's box runs. If his power blips, your team blips. He'll tell you.</span></span>
+        </li>
+        <li>
+          <span class="badge-dot"></span>
+          <span><span class="lead">Alpha-stage.</span> <span class="tail">Things will break. We'll be honest when they do.</span></span>
+        </li>
+        <li>
+          <span class="badge-dot"></span>
+          <span><span class="lead">Runs on Even's hardware.</span> <span class="tail">Your conversations sit on his Dell in Oslo.</span></span>
+        </li>
+        <li>
+          <span class="badge-dot"></span>
+          <span><span class="lead">Pause anytime.</span> <span class="tail">Tell Even. The kill-switch is one command. No friction.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- §5 CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <a class="cta-btn" href="mailto:even@imago.eco?subject=imago%20alpha">SAY HI →</a>
+      <div class="cta-fallback">or just reply to the mail you got</div>
+    </div>
+  </section>
+
+</body>
+</html>
