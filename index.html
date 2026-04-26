@@ -1,3 +1,13 @@
+<!--
+  Icon kit (DNA-shared with imago-website):
+    - Lucide icons at strokeWidth 1.5, currentColor, viewBox 0 0 24 24.
+    - Inline SVG only — zero-JS / static-HTML contract on this page.
+    - Set: mail, github, link, calendar, arrow-up-right (subset used here).
+    - Authoritative doc + path data: imago-website/src/components/ICONS.md
+      and imago-website/src/components/Icon.astro.
+    - Add icons by copying path data verbatim from lucide.dev (or
+      simpleicons.org for brand marks) at the standard 24×24 viewBox.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMA.AAAS — alpha</title>
   <meta name="description" content="A persistent AI orchestrator and a small specialist team. Five friends, by invite, alpha-stage.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  <link rel="apple-touch-icon" href="/favicon-512.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +64,9 @@
 
     a { color: inherit; }
 
+    /* Bionic-reading prefix bolding — subtle anchor, not visual shout. */
+    b { font-weight: 500; }
+
     .wrap {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -66,7 +80,7 @@
       padding: 96px 0 112px;
     }
     .hero .eyebrow {
-      font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      font-family: "Space Grotesk", system-ui, sans-serif;
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -79,6 +93,14 @@
       line-height: 0.95;
       letter-spacing: -0.08em;
       text-transform: uppercase;
+      margin: 0 0 12px;
+      font-weight: 400;
+    }
+    .hero .wordmark-expansion {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(13px, 1.3vw, 15px);
+      letter-spacing: 0.04em;
+      opacity: 0.65;
       margin: 0 0 40px;
       font-weight: 400;
     }
@@ -140,7 +162,7 @@
       background: var(--paper);
     }
     .card .card-eyebrow {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-family: "Space Grotesk", system-ui, sans-serif;
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -156,7 +178,7 @@
       line-height: 1.2;
     }
     .card .card-subtitle {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-family: "Space Grotesk", system-ui, sans-serif;
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 20px;
@@ -256,12 +278,14 @@
       text-align: center;
     }
     .cta-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: var(--paper);
       color: var(--ink);
       border: 1px solid var(--paper);
       padding: 14px 28px;
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-family: "Space Grotesk", system-ui, sans-serif;
       font-size: 13px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -269,8 +293,11 @@
       transition: opacity 0.15s ease;
     }
     .cta-btn:hover { opacity: 0.85; }
+    /* Inline icons (Lucide @ strokeWidth 1.5, currentColor — see ICONS.md
+       in imago-website/src/components/ for the canonical kit). */
+    .cta-btn svg { display: block; }
     .cta-fallback {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-family: "Space Grotesk", system-ui, sans-serif;
       font-size: 11px;
       color: var(--muted-dark);
       margin-top: 24px;
@@ -284,8 +311,9 @@
     <div class="wrap">
       <div class="eyebrow">ALPHA · INVITE ONLY · 2026</div>
       <h1 class="wordmark">IMA.AAAS</h1>
+      <div class="wordmark-expansion">Imago Agents As A Service</div>
       <h1>Your own persistent AI orchestrator and a small specialist team, running 24/7 on Even's home server.</h1>
-      <p class="sub">Not a SaaS. Not a chatbot. A small standing AI team that gets to know you and helps with your stuff.</p>
+      <p class="sub"><b>Not</b> <b>a</b> <b>Sa</b>aS. <b>Not</b> <b>a</b> <b>chat</b>bot. <b>A</b> <b>sma</b>ll <b>stan</b>ding <b>AI</b> <b>te</b>am <b>th</b>at <b>ge</b>ts <b>to</b> <b>kn</b>ow <b>you</b> <b>and</b> <b>hel</b>ps <b>wi</b>th <b>yo</b>ur <b>stu</b>ff.</p>
     </div>
   </section>
 
@@ -293,10 +321,10 @@
   <section class="light who">
     <div class="wrap">
       <h2>WHO IT'S FOR</h2>
-      <p>Five friends Even picked. That's the whole alpha.</p>
-      <p>If you're reading this, you're one of them — or someone Even sent the link to.</p>
-      <p>We kept it small on purpose. We want to know whether a persistent AI team is genuinely useful or whether the magic wears off in week two, and five lets us hear every signal.</p>
-      <p>If it works, it grows. If it doesn't, you'll get the unvarnished post-mortem and we'll all have learned something.</p>
+      <p><b>Fi</b>ve <b>frie</b>nds <b>Ev</b>en <b>pic</b>ked. <b>Tha</b>t's <b>the</b> <b>who</b>le <b>alp</b>ha.</p>
+      <p><b>If</b> <b>you</b>'re <b>read</b>ing <b>th</b>is, <b>you</b>'re <b>one</b> <b>of</b> <b>th</b>em — <b>or</b> <b>some</b>one <b>Ev</b>en <b>se</b>nt <b>the</b> <b>li</b>nk <b>to</b>.</p>
+      <p><b>We</b> <b>ke</b>pt <b>it</b> <b>sma</b>ll <b>on</b> <b>purp</b>ose. <b>We</b> <b>wa</b>nt <b>to</b> <b>kn</b>ow <b>whet</b>her <b>a</b> <b>persi</b>stent <b>AI</b> <b>te</b>am <b>is</b> <b>genui</b>nely <b>use</b>ful <b>or</b> <b>whet</b>her <b>the</b> <b>mag</b>ic <b>wea</b>rs <b>off</b> <b>in</b> <b>we</b>ek <b>two</b>, <b>and</b> <b>fi</b>ve <b>le</b>ts <b>us</b> <b>he</b>ar <b>eve</b>ry <b>sig</b>nal.</p>
+      <p><b>If</b> <b>it</b> <b>wor</b>ks, <b>it</b> <b>gro</b>ws. <b>If</b> <b>it</b> <b>doe</b>sn't, <b>you</b>'ll <b>get</b> <b>the</b> <b>unvar</b>nished <b>po</b>st-<b>mor</b>tem <b>and</b> <b>we</b>'ll <b>all</b> <b>ha</b>ve <b>lear</b>ned <b>somet</b>hing.</p>
     </div>
   </section>
 
@@ -304,25 +332,25 @@
   <section class="light what">
     <div class="wrap">
       <h2>WHAT YOU GET</h2>
-      <p class="sub-h2">A team of three, named once you meet them.</p>
+      <p class="sub-h2"><b>A</b> <b>te</b>am <b>of</b> <b>thr</b>ee, <b>nam</b>ed <b>on</b>ce <b>you</b> <b>me</b>et <b>th</b>em.</p>
       <div class="cards">
         <div class="card">
           <div class="card-eyebrow">ROLE · 01</div>
           <h3 class="card-title">YOUR ORCHESTRATOR</h3>
-          <div class="card-subtitle">🐙 your orchestrator</div>
-          <p class="card-body">When you join, the first message you get is "what should I call myself?" — pick a name, it'll answer to it from then on. It remembers what you've told it, what you're working on, what you care about. When a job needs a researcher or a builder, it pulls one in. Asks before doing anything irreversible.</p>
+          <div class="card-subtitle"><b>yo</b>ur <b>orche</b>strator</div>
+          <p class="card-body"><b>Wh</b>en <b>you</b> <b>jo</b>in, <b>the</b> <b>fir</b>st <b>mess</b>age <b>you</b> <b>get</b> <b>is</b> "<b>wh</b>at <b>sho</b>uld <b>I</b> <b>ca</b>ll <b>mys</b>elf?" — <b>pi</b>ck <b>a</b> <b>na</b>me, <b>it</b>'ll <b>ans</b>wer <b>to</b> <b>it</b> <b>fr</b>om <b>th</b>en <b>on</b>. <b>It</b> <b>remem</b>bers <b>wh</b>at <b>you</b>'ve <b>to</b>ld <b>it</b>, <b>wh</b>at <b>you</b>'re <b>work</b>ing <b>on</b>, <b>wh</b>at <b>you</b> <b>ca</b>re <b>abo</b>ut. <b>Wh</b>en <b>a</b> <b>job</b> <b>nee</b>ds <b>a</b> <b>resea</b>rcher <b>or</b> <b>a</b> <b>buil</b>der, <b>it</b> <b>pul</b>ls <b>one</b> <b>in</b>. <b>As</b>ks <b>bef</b>ore <b>doi</b>ng <b>anyt</b>hing <b>irrev</b>ersible.</p>
         </div>
         <div class="card">
           <div class="card-eyebrow">ROLE · 02</div>
           <h3 class="card-title">A RESEARCHER ON CALL</h3>
-          <div class="card-subtitle">🐿️ pulled in when needed</div>
-          <p class="card-body">When the orchestrator needs facts, it pulls in a researcher. Reads sources and cites them. Says "I'm not sure" when it isn't. Quality-scores its own work before handing back. Verdict first, then the reasoning — no padding.</p>
+          <div class="card-subtitle"><b>pul</b>led <b>in</b> <b>wh</b>en <b>nee</b>ded</div>
+          <p class="card-body"><b>Wh</b>en <b>the</b> <b>orche</b>strator <b>nee</b>ds <b>fac</b>ts, <b>it</b> <b>pul</b>ls <b>in</b> <b>a</b> <b>resea</b>rcher. <b>Rea</b>ds <b>sour</b>ces <b>and</b> <b>cit</b>es <b>th</b>em. <b>Sa</b>ys "<b>I'm</b> <b>not</b> <b>su</b>re" <b>wh</b>en <b>it</b> <b>is</b>n't. <b>Qual</b>ity-<b>sco</b>res <b>its</b> <b>own</b> <b>wo</b>rk <b>bef</b>ore <b>hand</b>ing <b>ba</b>ck. <b>Verd</b>ict <b>fir</b>st, <b>th</b>en <b>the</b> <b>reaso</b>ning — <b>no</b> <b>padd</b>ing.</p>
         </div>
         <div class="card">
           <div class="card-eyebrow">ROLE · 03</div>
           <h3 class="card-title">A BUILDER ON CALL</h3>
-          <div class="card-subtitle">🦀 pulled in when needed</div>
-          <p class="card-body">When the orchestrator needs something made — code, a script, a doc, a small tool — the builder picks it up. Skeptical by design: it'll say "this is a bad idea, here's why" before implementing. Tests its work. Doesn't ship broken things.</p>
+          <div class="card-subtitle"><b>pul</b>led <b>in</b> <b>wh</b>en <b>nee</b>ded</div>
+          <p class="card-body"><b>Wh</b>en <b>the</b> <b>orche</b>strator <b>nee</b>ds <b>somet</b>hing <b>ma</b>de — <b>co</b>de, <b>a</b> <b>scr</b>ipt, <b>a</b> <b>doc</b>, <b>a</b> <b>sma</b>ll <b>to</b>ol — <b>the</b> <b>buil</b>der <b>pic</b>ks <b>it</b> <b>up</b>. <b>Skept</b>ical <b>by</b> <b>des</b>ign: <b>it</b>'ll <b>say</b> "<b>th</b>is <b>is</b> <b>a</b> <b>bad</b> <b>id</b>ea, <b>her</b>e's <b>why</b>" <b>bef</b>ore <b>imple</b>menting. <b>Tes</b>ts <b>its</b> <b>wo</b>rk. <b>Doe</b>sn't <b>sh</b>ip <b>bro</b>ken <b>thi</b>ngs.</p>
         </div>
       </div>
     </div>
@@ -337,28 +365,28 @@
           <div class="num">01</div>
           <div class="step-body">
             <h3>Even sends you an invite link</h3>
-            <p>One Discord server, your own private channel. Your orchestrator joins it and posts first.</p>
+            <p><b>One</b> <b>Disc</b>ord <b>ser</b>ver, <b>yo</b>ur <b>own</b> <b>priv</b>ate <b>chan</b>nel. <b>Yo</b>ur <b>orche</b>strator <b>joi</b>ns <b>it</b> <b>and</b> <b>pos</b>ts <b>fir</b>st.</p>
           </div>
         </div>
         <div class="step">
           <div class="num">02</div>
           <div class="step-body">
             <h3>You name your orchestrator</h3>
-            <p>It asks. You pick. From that point it answers to that name and remembers everything you tell it. Memory is yours — pause or delete anytime by telling Even.</p>
+            <p><b>It</b> <b>as</b>ks. <b>You</b> <b>pi</b>ck. <b>Fr</b>om <b>th</b>at <b>poi</b>nt <b>it</b> <b>answ</b>ers <b>to</b> <b>th</b>at <b>na</b>me <b>and</b> <b>remem</b>bers <b>every</b>thing <b>you</b> <b>te</b>ll <b>it</b>. <b>Mem</b>ory <b>is</b> <b>you</b>rs — <b>pau</b>se <b>or</b> <b>del</b>ete <b>anyt</b>ime <b>by</b> <b>tell</b>ing <b>Ev</b>en.</p>
           </div>
         </div>
         <div class="step">
           <div class="num">03</div>
           <div class="step-body">
             <h3>You ask it to do stuff</h3>
-            <p>Research, drafting, brainstorming, scripts, finding things, summarizing things. It'll say what it can and can't do. If it needs to do something irreversible, it'll ask first.</p>
+            <p><b>Rese</b>arch, <b>draf</b>ting, <b>brain</b>storming, <b>scri</b>pts, <b>find</b>ing <b>thi</b>ngs, <b>summa</b>rizing <b>thi</b>ngs. <b>It</b>'ll <b>say</b> <b>wh</b>at <b>it</b> <b>can</b> <b>and</b> <b>ca</b>n't <b>do</b>. <b>If</b> <b>it</b> <b>nee</b>ds <b>to</b> <b>do</b> <b>somet</b>hing <b>irrev</b>ersible, <b>it</b>'ll <b>ask</b> <b>fir</b>st.</p>
           </div>
         </div>
         <div class="step">
           <div class="num">04</div>
           <div class="step-body">
             <h3>GitHub for the longer-running stuff</h3>
-            <p>If you've got work you want tracked, your orchestrator plugs into a GitHub repo. Issues become tasks. You can also ignore this entirely and just use Discord — it works either way.</p>
+            <p><b>If</b> <b>you</b>'ve <b>got</b> <b>wo</b>rk <b>you</b> <b>wa</b>nt <b>trac</b>ked, <b>yo</b>ur <b>orche</b>strator <b>plu</b>gs <b>in</b>to <b>a</b> <b>Git</b>Hub <b>re</b>po. <b>Iss</b>ues <b>bec</b>ome <b>tas</b>ks. <b>You</b> <b>can</b> <b>al</b>so <b>ign</b>ore <b>th</b>is <b>enti</b>rely <b>and</b> <b>ju</b>st <b>use</b> <b>Disc</b>ord — <b>it</b> <b>wor</b>ks <b>eit</b>her <b>way</b>.</p>
           </div>
         </div>
       </div>
@@ -372,23 +400,23 @@
       <ul class="isnt-list">
         <li>
           <span class="badge-dot"></span>
-          <span><span class="lead">Not a SaaS.</span> <span class="tail">No login, no account, no billing. You're a guest in Even's setup.</span></span>
+          <span><span class="lead">Not a SaaS.</span> <span class="tail"><b>No</b> <b>log</b>in, <b>no</b> <b>acco</b>unt, <b>no</b> <b>bill</b>ing. <b>You</b>'re <b>a</b> <b>gue</b>st <b>in</b> <b>Eve</b>n's <b>set</b>up.</span></span>
         </li>
         <li>
           <span class="badge-dot"></span>
-          <span><span class="lead">No SLA.</span> <span class="tail">It runs when Even's box runs. If his power blips, your team blips. He'll tell you.</span></span>
+          <span><span class="lead">No SLA.</span> <span class="tail"><b>It</b> <b>ru</b>ns <b>wh</b>en <b>Eve</b>n's <b>box</b> <b>ru</b>ns. <b>If</b> <b>his</b> <b>pow</b>er <b>bli</b>ps, <b>yo</b>ur <b>te</b>am <b>bli</b>ps. <b>He</b>'ll <b>te</b>ll <b>you</b>.</span></span>
         </li>
         <li>
           <span class="badge-dot"></span>
-          <span><span class="lead">Alpha-stage.</span> <span class="tail">Things will break. We'll be honest when they do.</span></span>
+          <span><span class="lead">Alpha-stage.</span> <span class="tail"><b>Thi</b>ngs <b>wi</b>ll <b>bre</b>ak. <b>We</b>'ll <b>be</b> <b>hon</b>est <b>wh</b>en <b>th</b>ey <b>do</b>.</span></span>
         </li>
         <li>
           <span class="badge-dot"></span>
-          <span><span class="lead">Runs on Even's hardware.</span> <span class="tail">Your conversations sit on his Dell in Oslo.</span></span>
+          <span><span class="lead">Runs on Even's hardware.</span> <span class="tail"><b>Yo</b>ur <b>conve</b>rsations <b>sit</b> <b>on</b> <b>his</b> <b>ser</b>ver <b>in</b> <b>Os</b>lo.</span></span>
         </li>
         <li>
           <span class="badge-dot"></span>
-          <span><span class="lead">Pause anytime.</span> <span class="tail">Tell Even. The kill-switch is one command. No friction.</span></span>
+          <span><span class="lead">Pause anytime.</span> <span class="tail"><b>Te</b>ll <b>Ev</b>en. <b>The</b> <b>ki</b>ll-<b>swi</b>tch <b>is</b> <b>one</b> <b>comm</b>and. <b>No</b> <b>fric</b>tion.</span></span>
         </li>
       </ul>
     </div>
@@ -397,8 +425,12 @@
   <!-- §5 CTA -->
   <section class="cta">
     <div class="wrap">
-      <a class="cta-btn" href="mailto:even@imago.eco?subject=imago%20alpha">SAY HI →</a>
-      <div class="cta-fallback">or just reply to the mail you got</div>
+      <a class="cta-btn" href="mailto:even@imago.eco?subject=imago%20alpha">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        <span>SAY HI</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </a>
+      <div class="cta-fallback"><b>or</b> <b>ju</b>st <b>rep</b>ly <b>to</b> <b>the</b> <b>ma</b>il <b>you</b> <b>got</b></div>
     </div>
   </section>
 
