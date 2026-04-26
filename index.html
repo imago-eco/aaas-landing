@@ -1,3 +1,13 @@
+<!--
+  Icon kit (DNA-shared with imago-website):
+    - Lucide icons at strokeWidth 1.5, currentColor, viewBox 0 0 24 24.
+    - Inline SVG only — zero-JS / static-HTML contract on this page.
+    - Set: mail, github, link, calendar, arrow-up-right (subset used here).
+    - Authoritative doc + path data: imago-website/src/components/ICONS.md
+      and imago-website/src/components/Icon.astro.
+    - Add icons by copying path data verbatim from lucide.dev (or
+      simpleicons.org for brand marks) at the standard 24×24 viewBox.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -256,7 +266,9 @@
       text-align: center;
     }
     .cta-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: var(--paper);
       color: var(--ink);
       border: 1px solid var(--paper);
@@ -269,6 +281,9 @@
       transition: opacity 0.15s ease;
     }
     .cta-btn:hover { opacity: 0.85; }
+    /* Inline icons (Lucide @ strokeWidth 1.5, currentColor — see ICONS.md
+       in imago-website/src/components/ for the canonical kit). */
+    .cta-btn svg { display: block; }
     .cta-fallback {
       font-family: "JetBrains Mono", ui-monospace, monospace;
       font-size: 11px;
@@ -397,7 +412,11 @@
   <!-- §5 CTA -->
   <section class="cta">
     <div class="wrap">
-      <a class="cta-btn" href="mailto:even@imago.eco?subject=imago%20alpha">SAY HI →</a>
+      <a class="cta-btn" href="mailto:even@imago.eco?subject=imago%20alpha">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        <span>SAY HI</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </a>
       <div class="cta-fallback">or just reply to the mail you got</div>
     </div>
   </section>
