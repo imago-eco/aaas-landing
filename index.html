@@ -15,7 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMA.AAAS — alpha</title>
   <meta name="description" content="A persistent AI orchestrator and a small specialist team. Five friends, by invite, alpha-stage.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  <link rel="apple-touch-icon" href="/favicon-512.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +90,14 @@
       line-height: 0.95;
       letter-spacing: -0.08em;
       text-transform: uppercase;
+      margin: 0 0 12px;
+      font-weight: 400;
+    }
+    .hero .wordmark-expansion {
+      font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: clamp(13px, 1.3vw, 15px);
+      letter-spacing: 0.04em;
+      opacity: 0.65;
       margin: 0 0 40px;
       font-weight: 400;
     }
@@ -299,6 +308,7 @@
     <div class="wrap">
       <div class="eyebrow">ALPHA · INVITE ONLY · 2026</div>
       <h1 class="wordmark">IMA.AAAS</h1>
+      <div class="wordmark-expansion">Imago Agents As A Service</div>
       <h1>Your own persistent AI orchestrator and a small specialist team, running 24/7 on Even's home server.</h1>
       <p class="sub">Not a SaaS. Not a chatbot. A small standing AI team that gets to know you and helps with your stuff.</p>
     </div>
@@ -324,19 +334,19 @@
         <div class="card">
           <div class="card-eyebrow">ROLE · 01</div>
           <h3 class="card-title">YOUR ORCHESTRATOR</h3>
-          <div class="card-subtitle">🐙 your orchestrator</div>
+          <div class="card-subtitle">your orchestrator</div>
           <p class="card-body">When you join, the first message you get is "what should I call myself?" — pick a name, it'll answer to it from then on. It remembers what you've told it, what you're working on, what you care about. When a job needs a researcher or a builder, it pulls one in. Asks before doing anything irreversible.</p>
         </div>
         <div class="card">
           <div class="card-eyebrow">ROLE · 02</div>
           <h3 class="card-title">A RESEARCHER ON CALL</h3>
-          <div class="card-subtitle">🐿️ pulled in when needed</div>
+          <div class="card-subtitle">pulled in when needed</div>
           <p class="card-body">When the orchestrator needs facts, it pulls in a researcher. Reads sources and cites them. Says "I'm not sure" when it isn't. Quality-scores its own work before handing back. Verdict first, then the reasoning — no padding.</p>
         </div>
         <div class="card">
           <div class="card-eyebrow">ROLE · 03</div>
           <h3 class="card-title">A BUILDER ON CALL</h3>
-          <div class="card-subtitle">🦀 pulled in when needed</div>
+          <div class="card-subtitle">pulled in when needed</div>
           <p class="card-body">When the orchestrator needs something made — code, a script, a doc, a small tool — the builder picks it up. Skeptical by design: it'll say "this is a bad idea, here's why" before implementing. Tests its work. Doesn't ship broken things.</p>
         </div>
       </div>
